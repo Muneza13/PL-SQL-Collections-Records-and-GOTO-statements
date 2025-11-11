@@ -70,3 +70,8 @@ notes VARCHAR2(400)
 
 expected output from created tables 
 ---
+![table students](https://github.com/user-attachments/assets/a594c366-255c-43c0-af77-c5f47df84005)
+![table student reports ](https://github.com/user-attachments/assets/9c03d7cf-f22b-41b7-ba2d-88e05b5277d6)
+![table quiz submissions ](https://github.com/user-attachments/assets/15fe81bc-9a10-452a-92f7-33878f4da3a2)
+![table processing erros ](https://github.com/user-attachments/assets/a7fd005d-c01e-4593-90d1-1f5afbcf3506)
+![table category weights ](https://github.com/user-attachments/assets/dd9c5192-c689-4537-8335-5b4b533c7c9b)
