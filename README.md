@@ -1,4 +1,12 @@
 # PL-SQL-Collections-Records-and-GOTO-statements
+
+**Author:** Prince ISHIMWE MUNEZA
+**Course:** Database Development with PL/SQL (INSY 8311)   
+**Institution**: Adventist University of Central Africa (AUCA)  
+**Instructor**: Eric Maniraguha  
+**Assignment**: Individual Assignment 3
+**Submission Date**: November 11 , 2025
+
 Overview
 
 This repository demonstrates PL/SQL Collections, Records, and GOTO statements through a single, coherent problem: processing and grading student quiz scores with category aggregation, business-rules validation, and exceptional control flow.
@@ -209,4 +217,19 @@ The GOTO statement was used to demonstrate control flow jumps in specific error 
 
 Overall, the project successfully processed valid quiz scores, handled invalid data gracefully, and produced clear output reports and error logs.
 It shows how powerful and organized PL/SQL can be when solving real-life data problems while keeping the code structured and maintainable.
+
+---
+## 📬 Contact Information
+**Student:** Prince ISHIMWE MUNEZA
+**Email:** {ishimwemunezaprince@gmail.com} 
+**PHONE NUMBER** +250798552735
+**Course:** Database Development with PL/SQL (INSY 8311)  
+**Instructor:** Eric Maniraguha (eric.maniraguha@auca.ac.rw)  
+**Institution:** Adventist University of Central Africa (AUCA)  
+**Academic Year:** 2025-2026
+
+---
+"Whoever is faithful in very little is also faithful in much." – Luke 16:10
+---
+Muneza prince ISHIMWE
 
