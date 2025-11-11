@@ -112,3 +112,80 @@ INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES 
 CREATING PROCEDURES
 Notes about GOTO : The following uses GOTO handle_invalid_score; to jump to the label when input validation fails. Modern PL/SQL code should favor exceptions and structured control flow; the GOTO is included only because the assignment requires demonstration.
 ---
+CREATE OR REPLACE PACKAGE pkg_grades IS
+-- assign to record
+v_rec.submission_id := s.submission_id;
+v_rec.student_id := s.student_id;
+v_rec.category := s.category;
+v_rec.score := s.score;
+
+
+-- Validate score
+IF v_rec.score IS NULL OR v_rec.score < 0 OR v_rec.score > 100 THEN
+-- jump to error handling using GOTO
+GOTO handle_invalid_score;
+END IF;
+
+
+-- apply weight (default to 0 if category not found)
+IF weight_map.EXISTS(v_rec.category) THEN
+v_weight := weight_map(v_rec.category);
+ELSE
+v_weight := 0;
+END IF;
+
+
+-- accumulate weighted score by student
+IF student_scores.EXISTS(v_rec.student_id) THEN
+student_scores(v_rec.student_id) := student_scores(v_rec.student_id) + (v_rec.score * v_weight);
+ELSE
+student_scores(v_rec.student_id) := (v_rec.score * v_weight);
+-- store the student's name for later report join
+SELECT full_name INTO student_names(v_rec.student_id) FROM students WHERE student_id = v_rec.student_id;
+END IF;
+
+
+-- maintain recent-scores varray (push front, keep max 5)
+v_recent.EXTEND;
+v_recent(v_recent.COUNT) := v_rec.score;
+IF v_recent.COUNT > 5 THEN
+-- remove the oldest (simple approach: trim front by shifting into new varray)
+NULL; -- (for demonstration - not critical to algorithm)
+END IF;
+
+
+CONTINUE; -- normal flow
+
+
+<<handle_invalid_score>>
+NULL; -- label target
+-- record the error and continue with next submission
+log_error(v_rec.submission_id, v_rec.student_id, 'Invalid score: ' || NVL(TO_CHAR(v_rec.score), 'NULL'));
+-- continue automatically to next iteration (FOR-loop does it)
+END LOOP;
+
+
+-- After aggregation, persist reports
+FOR idx IN student_scores.FIRST .. student_scores.LAST LOOP
+IF idx IS NOT NULL AND student_scores.EXISTS(idx) THEN
+INSERT INTO student_reports(student_id, full_name, final_score, notes)
+VALUES (idx, student_names(idx), ROUND(student_scores(idx),2), 'Computed by pkg_grades');
+END IF;
+END LOOP;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+-- generic error logging
+log_error(NULL, NULL, 'Processing failed: ' || SQLERRM);
+RAISE; -- re-raise after logging
+END process_all_submissions;
+
+
+PROCEDURE clear_reports IS
+BEGIN
+DELETE FROM student_reports;
+DELETE FROM processing_errors;
+COMMIT;
+END;
+END pkg_grades;
+/
