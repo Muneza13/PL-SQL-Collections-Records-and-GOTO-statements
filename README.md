@@ -25,10 +25,11 @@ Detects invalid scores (< 0 or > 100) and uses a GOTO controlled error-handling 
 Uses Records to model each input row and Collections to hold intermediate aggregates and to produce a final sorted student report.
 
 Exposes a packaged API to: load data, process/aggregate, produce a report table, and cleanup.
----
-DDL(data definition languague) crearting tables 
-tables are 
+
+DDL(data definition languague) created tables are 
 Students, quiz submissions, category weights, and errors
+---
+
 
 CREATE TABLE students (
 student_id NUMBER PRIMARY KEY,
