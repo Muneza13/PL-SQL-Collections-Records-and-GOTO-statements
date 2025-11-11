@@ -75,3 +75,36 @@ expected output from created tables
 ![table quiz submissions ](https://github.com/user-attachments/assets/15fe81bc-9a10-452a-92f7-33878f4da3a2)
 ![table processing erros ](https://github.com/user-attachments/assets/a7fd005d-c01e-4593-90d1-1f5afbcf3506)
 ![table category weights ](https://github.com/user-attachments/assets/dd9c5192-c689-4537-8335-5b4b533c7c9b)
+
+inserting data into created tables (querries that used)
+---
+INSERT INTO students(student_id, full_name) VALUES (1,'Alice Example');
+INSERT INTO students(student_id, full_name) VALUES (2,'Bob Sample');
+INSERT INTO students(student_id, full_name) VALUES (3,'Charlie Test');
+
+
+INSERT INTO category_weights(category, weight) VALUES ('MATH', 0.4);
+INSERT INTO category_weights(category, weight) VALUES ('ENGLISH', 0.3);
+INSERT INTO category_weights(category, weight) VALUES ('SCIENCE', 0.3);
+
+
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (101, 1, 'MATH', 85);
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (102, 1, 'ENGLISH', 78);
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (103, 1, 'SCIENCE', 92);
+
+
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (201, 2, 'MATH', 55);
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (202, 2, 'ENGLISH', 60);
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (203, 2, 'SCIENCE', 58);
+
+
+-- error entering to trigger GOTO 
+INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES (301, 3, 'MATH', 105); -- this is  invalid
+
+--output (screen shoots)
+![inserting into students ](https://github.com/user-attachments/assets/aedbf026-17bb-41b9-be17-1d92a4400169)
+![inserting into quizz submission ](https://github.com/user-attachments/assets/8ce8e9ac-cf39-49e5-a8fb-87b6e7e57f95)
+![inserting into quizz sub](https://github.com/user-attachments/assets/55df8b8f-2c16-4c23-9e72-0cc7c7c26325)
+![inserting into category weight](https://github.com/user-attachments/assets/e3af6db7-fe68-4846-a44f-5466317f177c)
+![error triggering to be handled by goto](https://github.com/user-attachments/assets/8783f4f7-cf0d-4423-9b08-4c658a34e0da)
+
