@@ -189,3 +189,9 @@ COMMIT;
 END;
 END pkg_grades;
 /
+
+--outputs
+![output 1](https://github.com/user-attachments/assets/9d119146-37f9-48ef-98df-1366a161afa5)
+![error triggering to be handled by goto](https://github.com/user-attachments/assets/5cd86efe-6da1-42ae-8b2c-93d48b12b6cf)
+![body compiling](https://github.com/user-attachments/assets/2bdf738c-6c15-4e5d-aadd-09330a3af46c)
+ as we can see thats the output shown
