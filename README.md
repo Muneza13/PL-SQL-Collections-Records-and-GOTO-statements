@@ -108,3 +108,7 @@ INSERT INTO quiz_submissions(submission_id, student_id, category, score) VALUES 
 ![inserting into category weight](https://github.com/user-attachments/assets/e3af6db7-fe68-4846-a44f-5466317f177c)
 ![error triggering to be handled by goto](https://github.com/user-attachments/assets/8783f4f7-cf0d-4423-9b08-4c658a34e0da)
 
+---
+CREATING PROCEDURES
+Notes about GOTO : The following uses GOTO handle_invalid_score; to jump to the label when input validation fails. Modern PL/SQL code should favor exceptions and structured control flow; the GOTO is included only because the assignment requires demonstration.
+---
