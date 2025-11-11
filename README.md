@@ -195,3 +195,18 @@ END pkg_grades;
 ![error triggering to be handled by goto](https://github.com/user-attachments/assets/5cd86efe-6da1-42ae-8b2c-93d48b12b6cf)
 ![body compiling](https://github.com/user-attachments/assets/2bdf738c-6c15-4e5d-aadd-09330a3af46c)
  as we can see thats the output shown
+ ---
+
+ Conclusion
+
+This project demonstrated how PL/SQL Collections, Records, and GOTO statements can be applied in a real-world scenario. By building a student quiz grading system, we learned how to store and process data efficiently inside PL/SQL programs.
+
+Records helped group related fields (like student ID, category, and score) into a single, easy-to-use structure.
+
+Collections such as associative arrays, nested tables, and varrays made it possible to handle sets of data dynamically — allowing quick lookups, flexible lists, and small fixed caches.
+
+The GOTO statement was used to demonstrate control flow jumps in specific error situations, although in modern practice, it’s better replaced with structured exception handling.
+
+Overall, the project successfully processed valid quiz scores, handled invalid data gracefully, and produced clear output reports and error logs.
+It shows how powerful and organized PL/SQL can be when solving real-life data problems while keeping the code structured and maintainable.
+
